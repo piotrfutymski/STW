@@ -1,0 +1,110 @@
+[
+    {
+        "type":"HeroData",
+        "resource":{
+            "id": "peasant",
+                "data":{
+                    "hero_family": "village",
+                    "hero_level": 0,
+
+                    "init_skills": {}
+                }
+        }
+    },
+    {
+        "type":"HeroData",
+        "resource":{
+            "id": "treasure_hunter",
+                "data":{
+                    "hero_family": "village",
+                    "hero_level": 2,
+
+                    "init_skills": {"Tracking":1.4, "MleeFight": 1.3, "Intnteligence": 1.3}
+                }
+        }
+    },
+    {
+        "type":"HeroData",
+        "resource":{
+            "id": "caravan_hand",
+                "data":{
+                    "hero_family": "village",
+                    "hero_level": 2,
+
+                    "init_skills": {"Tracking":1.3, "MleeFight": 1.4, "Dextrity": 1.3}
+                }
+        }
+    },
+    {
+        "type":"HeroData",
+        "resource":{
+            "id": "bowyer",
+                "data":{
+                    "hero_family": "scouts",
+                    "hero_level": 1,
+
+                    "init_skills": {"Dextrity":1.3, "DistanceFight": 1.3}
+                }
+        }
+    },
+    {
+        "type":"HeroData",
+        "resource":{
+            "id": "hunter",
+                "data":{
+                    "hero_family": "scouts",
+                    "hero_level": 2,
+
+                    "init_skills": {"Dextrity":1.4, "DistanceFight": 1.4, "Tracking": 1.3}
+                }
+        }
+    },
+    {
+        "type":"HeroData",
+        "resource":{
+            "id": "blacksmith_apprentice",
+                "data":{
+                    "hero_family": "forge",
+                    "hero_level": 1,
+
+                    "init_skills": {"Strength":1.3, "MleeFight": 1.3}
+                }
+        }
+    },
+    {
+        "type":"HeroData",
+        "resource":{
+            "id": "blacksmith",
+                "data":{
+                    "hero_family": "forge",
+                    "hero_level": 2,
+
+                    "init_skills": {"Strength":1.6, "MleeFight": 1.4}
+                }
+        }
+    },
+    {
+        "type":"HeroData",
+        "resource":{
+            "id": "alchemist_apprentice",
+                "data":{
+                    "hero_family": "magic",
+                    "hero_level": 1,
+
+                    "init_skills": {"Intnteligence":1.3, "Alechemy": 1.3}
+                }
+        }
+    },
+    {
+        "type":"HeroData",
+        "resource":{
+            "id": "alchemist",
+                "data":{
+                    "hero_family": "magic",
+                    "hero_level": 2,
+
+                    "init_skills": {"Intnteligence":1.5, "Alechemy": 1.4, "Magic": 1.2}
+                }
+        }
+    }
+]

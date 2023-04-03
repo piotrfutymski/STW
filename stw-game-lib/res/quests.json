@@ -1,0 +1,291 @@
+[
+    {
+        "type":"QuestData",
+        "resource":{
+            "id": "hungry_villagers",
+            "data":{
+                "quest_family": "cottage",
+                "quest_level": 0,
+                "quest_decisions":[
+                    {
+                        "id":"give_resources",
+                        "required_skills": {"Charisma": 1.0, "Intnteligence": 1.0, "Tracking": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 5.0,
+                        "additional_points": [{"DidActionFamily":"gathering"}, {"DidActionFamily":"hunting"}],
+                        "required": [[{"DidActionFamily":"gathering"}], [{"DidActionFamily":"hunting"}]],
+                        "treasure": {"Gold": [4.0,6.0]}
+                    },
+                    {
+                        "id":"help_with_gathering",
+                        "required_skills": {"Charisma": 1.0, "Intnteligence": 1.0, "Tracking": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 5.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [2.0,5.0]}
+                    }
+                ],
+                "penalty":["DestroyQuestTile"]
+            }
+        }
+    },
+    {
+        "type":"QuestData",
+        "resource":{
+            "id": "wild_beast_0",
+            "data":{
+                "quest_family": "forest",
+                "quest_level": 0,
+                "quest_decisions":[
+                    {
+                        "id":"hunt_carefully",
+                        "required_skills": {"Dextrity": 1.0, "Tracking": 1.0, "DistanceFight": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [0.0,6.0], "Story": [0.0,2.0], "GreenTrophy":[0.0,1.2]}
+                    },
+                    {
+                        "id":"hunt_directly",
+                        "required_skills": {"Dextrity": 1.0, "Tracking": 1.0, "MleeFight": 1.0, "Strength": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 4.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [0.0,6.0], "Story": [0.0,2.0], "GreenTrophy":[0.0,1.2]}
+                    },
+                    {
+                        "id":"track_and_hunt",
+                        "required_skills": {"Dextrity": 1.0, "Tracking": 0.5, "DistanceFight": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 4.0,
+                        "additional_points": [],
+                        "required": [[{"HeroFromFamliy":"scouts"}]],
+                        "treasure": {"Gold": [4.0,6.0], "Story": [0.0,2.0], "GreenTrophy":[0.5,1.5]}
+                    },
+                    {
+                        "id":"flee",
+                        "required_skills": {"Dextrity": 0.5, "Strength": 0.5},
+                        "min_required_points": 0.0,
+                        "points_50p": 2.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {}
+                    }
+                ],
+                "penalty":[{"KillHero": 0.5}]
+            }
+        }
+    },
+    {
+        "type":"QuestData",
+        "resource":{
+            "id": "wild_beast_1",
+            "data":{
+                "quest_family": "forest",
+                "quest_level": 1,
+                "quest_decisions":[
+                    {
+                        "id":"hunt_carefully",
+                        "required_skills": {"Dextrity": 2.0, "Tracking": 2.0, "DistanceFight": 2.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [0.0,15.0], "Story": [0.0,3.0], "GreenTrophy":[0.0,1.5]}
+                    },
+                    {
+                        "id":"hunt_directly",
+                        "required_skills": {"Dextrity": 2.0, "Tracking": 2.0, "MleeFight": 2.0, "Strength": 2.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 4.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [0.0,15.0], "Story": [0.0,3.0], "GreenTrophy":[0.0,1.5]}
+                    },
+                    {
+                        "id":"track_and_hunt",
+                        "required_skills": {"Dextrity": 1.0, "Tracking": 0.5, "DistanceFight": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 4.0,
+                        "additional_points": [],
+                        "required": [[{"HeroFromFamliy":"scouts"}]],
+                        "treasure": {"Gold": [8.0,15.0], "Story": [1.0,3.0], "GreenTrophy":[0.8,1.5]}
+                    },
+                    {
+                        "id":"flee",
+                        "required_skills": {"Dextrity": 1.0, "Strength": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 2.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {}
+                    }
+                ],
+                "penalty":[{"KillHero": 0.5}]
+            }
+        }
+    },
+    {
+        "type":"QuestData",
+        "resource":{
+            "id": "bandits_0",
+            "data":{
+                "quest_family": "bandits",
+                "quest_level": 0,
+                "quest_decisions":[
+                    {
+                        "id":"attack_carefully",
+                        "required_skills": {"Dextrity": 1.0, "DistanceFight": 0.5},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [4.0,6.0], "Story": [0.0,2.0], "RedTrophy":[0.5,1.2]}
+                    },
+                    {
+                        "id":"attack_directly",
+                        "required_skills": {"Strength": 1.0, "MleeFight": 0.5},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [4.0,6.0], "Story": [0.0,2.0], "RedTrophy":[0.5,1.2]}
+                    },
+                    {
+                        "id":"flee",
+                        "required_skills": {"Dextrity": 0.75, "Strength": 0.75},
+                        "min_required_points": 0.0,
+                        "points_50p": 2.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {}
+                    }
+                ],
+                "penalty":[{"KillHero": 0.5}]
+            }
+        }
+    },
+    {
+        "type":"QuestData",
+        "resource":{
+            "id": "bandits_1",
+            "data":{
+                "quest_family": "bandits",
+                "quest_level": 1,
+                "quest_decisions":[
+                    {
+                        "id":"attack_carefully",
+                        "required_skills": {"Dextrity": 2.0, "DistanceFight": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [8.0,15.0], "Story": [1.0,3.0], "RedTrophy":[0.8,1.5]}
+                    },
+                    {
+                        "id":"attack_directly",
+                        "required_skills": {"Strength": 2.0, "MleeFight": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [8.0,15.0], "Story": [1.0,3.0], "RedTrophy":[0.8,1.5]}
+                    },
+                    {
+                        "id":"flee",
+                        "required_skills": {"Dextrity": 1.5, "Strength": 1.5},
+                        "min_required_points": 0.0,
+                        "points_50p": 2.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {}
+                    }
+                ],
+                "penalty":[{"KillHero": 0.5}]
+            }
+        }
+    },
+    {
+        "type":"QuestData",
+        "resource":{
+            "id": "explore_caves",
+            "data":{
+                "quest_family": "caves",
+                "quest_level": 0,
+                "quest_decisions":[
+                    {
+                        "id":"seek_riches",
+                        "required_skills": {"Tracking": 1.0, "Intnteligence": 0.5},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [4.0,6.0], "Story": [0.0,2.0], "BlueTrophy":[0.0,1.2]}
+                    },
+                    {
+                        "id":"search_for_plants",
+                        "required_skills": {"Alechemy": 1.0, "Intnteligence": 0.5},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Story": [0.0,2.0], "BlueTrophy":[0.8,1.5]}
+                    },
+                    {
+                        "id":"flee",
+                        "required_skills": {"Dextrity": 0.5, "Strength": 0.5, "Intnteligence": 0.5},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {}
+                    }
+                ],
+                "penalty":[{"KillHero": 0.25}]
+            }
+        }
+    },
+    {
+        "type":"QuestData",
+        "resource":{
+            "id": "explore_caves",
+            "data":{
+                "quest_family": "caves",
+                "quest_level": 1,
+                "quest_decisions":[
+                    {
+                        "id":"seek_riches",
+                        "required_skills": {"Tracking": 2.0, "Intnteligence": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Gold": [8.0,15.0], "Story": [0.0,2.0], "BlueTrophy":[0.0,1.2]}
+                    },
+                    {
+                        "id":"search_for_plants",
+                        "required_skills": {"Alechemy": 2.0, "Intnteligence": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {"Story": [0.0,2.0], "BlueTrophy":[1.0,2.5]}
+                    },
+                    {
+                        "id":"flee",
+                        "required_skills": {"Dextrity": 1.0, "Strength": 1.0, "Intnteligence": 1.0},
+                        "min_required_points": 0.0,
+                        "points_50p": 3.0,
+                        "additional_points": [],
+                        "required": [],
+                        "treasure": {}
+                    }
+                ],
+                "penalty":[{"KillHero": 0.25}]
+            }
+        }
+    }
+]

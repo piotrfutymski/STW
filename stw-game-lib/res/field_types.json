@@ -1,0 +1,330 @@
+[
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "village_small",
+                "data":{
+                    "build_path": "town",
+                    "path_level": 0,
+                    "characteristic": "Habited",
+
+                    "requirments": [
+                        {"NoNearFieldWithCharacteristic": {"characteristic":"Mysterious", "distance": 2}},
+                        {"NoNearFieldWithPath": {"build_path":"town", "distance": 5}}
+                    ],
+                    "cost": {"Gold":10, "RareTrophy":1},
+
+                    "instant_effects": [{"ShowFields": {"only_first_time": false, "amount": 18}}],
+
+                    "quest_family": "",
+                    "quest_levels": [],
+
+                    "hero_family": "village",
+                    "hero_levels": [1.0],
+
+                    "possible_actions": [
+                        "collect_info_village",
+                        "shopping_village"
+                    ],
+                    "color": [139,69,19]
+                }
+        }
+    },
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "village",
+                "data":{
+                    "build_path": "town",
+                    "path_level": 1,
+                    "characteristic": "Habited",
+
+                    "requirments": [],
+                    "cost": {"Gold": 20, "GreenTrophy": 1},
+
+                    "instant_effects": [],
+
+                    "quest_family": "",
+                    "quest_levels": [],
+
+                    "hero_family": "village",
+                    "hero_levels": [0.2, 0.4, 0.4],
+
+                    "possible_actions": [
+                        "collect_info_village",
+                        "shopping_village"
+                    ],
+                    "color": [169,89,19]
+                }
+        }
+    },
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "tavern_small",
+                "data":{
+                    "build_path": "tavern",
+                    "path_level": 0,
+                    "characteristic": "Habited",
+
+                    "requirments": [
+                        {"NearFieldWithCharacteristic":{"characteristic":"Habited", "distance": 2}}, 
+                        {"NoNearFieldWithCharacteristic":{"characteristic":"Mysterious", "distance": 1}},
+                        {"NoNearFieldWithPath": {"build_path":"tavern", "distance": 3}}
+                    ],
+                    "cost": {"Gold":7},
+
+                    "instant_effects": [{"GiveResources":{"only_first_time": false, "resource": "Story", "amount": 1}}],
+
+                    "quest_family": "",
+                    "quest_levels": [],
+
+                    "hero_family": "",
+                    "hero_levels": [],
+
+                    "possible_actions": [
+                        "collect_info_tavern",
+                        "do_some_quests_tavern_small"
+                    ],
+                    "color": [200,69,19]
+                }
+        }
+    },
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "tavern",
+                "data":{
+                    "build_path": "tavern",
+                    "path_level": 1,
+                    "characteristic": "Habited",
+
+                    "requirments": [],
+                    "cost": {"Gold":15},
+
+                    "instant_effects": [{"IncreaseMaxHeroes":{"only_first_time": true}}],
+
+                    "quest_family": "",
+                    "quest_levels": [],
+
+                    "hero_family": "",
+                    "hero_levels": [],
+
+                    "possible_actions": [
+                        "collect_info_tavern",
+                        "do_some_quests_tavern"
+                    ],
+                    "color": [200,69,19]
+                }
+        }
+    },
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "cottage",
+                "data":{
+                    "build_path": "cottage",
+                    "path_level": 0,
+                    "characteristic": "Habited",
+
+                    "requirments": [
+                        {"NearFieldWithPath":{"build_path":"town", "distance": 1}}, 
+                        {"NoNearFieldWithCharacteristic":{"characteristic":"Mysterious", "distance": 1}}
+                    ],
+                    "cost": {"Gold":2},
+
+                    "instant_effects": [],
+
+                    "quest_family": "cottage",
+                    "quest_levels": [1.0],
+
+                    "hero_family": "",
+                    "hero_levels": [],
+
+                    "possible_actions": [
+                        "collect_info_village"
+                    ],
+                    "color": [100,50,20]
+                }
+        }
+    },
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "archers_hut",
+                "data":{
+                    "build_path": "scouts",
+                    "path_level": 1,
+                    "characteristic": "Habited",
+
+                    "requirments": [{"Replaces":"cottage"}, "QuestCompleted"],
+                    "cost": {"Gold":12},
+
+                    "instant_effects": [{"ShowFields": {"only_first_time": false, "amount": 6}}],
+
+                    "quest_family": "",
+                    "quest_levels": [],
+
+                    "hero_family": "scouts",
+                    "hero_levels": [0, 0.5, 0.5],
+
+                    "possible_actions": [
+                        "practice_archery_archers_hut",
+                        "create_arc_archers_hut"
+                    ],
+                    "color": [100,150,100]
+                }
+        }
+    },
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "forge_small",
+                "data":{
+                    "build_path": "forge",
+                    "path_level": 1,
+                    "characteristic": "Habited",
+
+                    "requirments": [{"Replaces":"cottage"}, "QuestCompleted"],
+                    "cost": {"Gold":12},
+
+                    "instant_effects": [{"IncreaseSkill": {"only_first_time": false, "skill":"Strength", "amount": 0.2}}],
+
+                    "quest_family": "",
+                    "quest_levels": [],
+
+                    "hero_family": "forge",
+                    "hero_levels": [0, 0.5, 0.5],
+
+                    "possible_actions": [
+                        "make_weapons_forge_small",
+                        "practice_blacksmithing_forge_small"
+                    ],
+                    "color": [180,69,19]
+                }
+        }
+    },
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "alchemists_house",
+                "data":{
+                    "build_path": "magic",
+                    "path_level": 1,
+                    "characteristic": "Habited",
+
+                    "requirments": [{"Replaces":"cottage"}, "QuestCompleted"],
+                    "cost": {"Gold":12},
+
+                    "instant_effects": [{"LearnAboutAction": {"only_first_time": false}}],
+
+                    "quest_family": "",
+                    "quest_levels": [],
+
+                    "hero_family": "magic",
+                    "hero_levels": [0, 0.5, 0.5],
+
+                    "possible_actions": [
+                        "make_potions_alchemists_house",
+                        "learn_alchemy_alchemists_house"
+                    ],
+                    "color": [50,50,150]
+                }
+        }
+    },
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "wilderness",
+                "data":{
+                    "build_path": "forest",
+                    "path_level": 0,
+                    "characteristic": "Mysterious",
+
+                    "requirments": [
+                        {"NoNearFieldWithCharacteristic":{"characteristic":"Habited", "distance": 1}},
+                        {"HasOrigin": "forest"}
+                    ],
+                    "cost": {"Story":1},
+
+                    "instant_effects": [],
+
+                    "quest_family": "forest",
+                    "quest_levels": [0.5,0.5],
+
+                    "hero_family": "",
+                    "hero_levels": [],
+
+                    "possible_actions":[
+                        "exploration_wilderness", 
+                        "hunting_wilderness",
+                        "track_the_beasts_wilderness"
+                    ],
+                    "color": [0,150,50]
+                }
+        }
+    },
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "bandit_camp_small",
+                "data":{
+                    "build_path": "bandits",
+                    "path_level": 0,
+                    "characteristic": "Mysterious",
+
+                    "requirments": [
+                        {"NoNearFieldWithCharacteristic":{"characteristic":"Habited", "distance": 1}}
+                    ],
+                    "cost": {"Story":1},
+
+                    "instant_effects": [],
+
+                    "quest_family": "bandits",
+                    "quest_levels": [0.5,0.5],
+
+                    "hero_family": "",
+                    "hero_levels": [],
+
+                    "possible_actions":[
+                        "fight_with_bandits_small", 
+                        "save_the_hostages_samll",
+                        "watch_bandit_camp_small"
+                    ],
+                    "color": [150,150,0]
+                }
+        }
+    },
+    {
+        "type":"FieldTypeData",
+        "resource":{
+            "id": "caves",
+                "data":{
+                    "build_path": "mountains",
+                    "path_level": 0,
+                    "characteristic": "Mysterious",
+
+                    "requirments": [
+                        {"NoNearFieldWithCharacteristic":{"characteristic":"Habited", "distance": 1}},
+                        {"HasOriginOneOf": ["hills","mountains"]}
+                    ],
+                    "cost": {"Story":1},
+
+                    "instant_effects": [],
+
+                    "quest_family": "mountains",
+                    "quest_levels": [0.5,0.5],
+
+                    "hero_family": "",
+                    "hero_levels": [],
+
+                    "possible_actions":[
+                        "exploration_caves", 
+                        "search_treasures_caves",
+                        "mining_caves"
+                    ],
+                    "color": [50,50,100]
+                }
+        }
+    }
+]
