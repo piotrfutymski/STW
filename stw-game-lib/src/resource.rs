@@ -42,7 +42,7 @@ impl ResourceManager {
         Ok(
             self.resources
             .get(&type_id)
-            .expect("Bad type in ResourceManager.get_resource")
+            .expect("Bad type in ResourceManager.get_resource or no resource with given id")
             .get(str)
             .ok_or_else(||GameError::new(format!("Can't ResourceManager.get_resource with id {}. Probably missing resource", str)))?
             .clone()

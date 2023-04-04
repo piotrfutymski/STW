@@ -106,7 +106,7 @@ impl GameConfig {
                     "FieldTypeData" => rm.add_resource::<FieldTypeData>(e.1),
                     "HeroData" => rm.add_resource::<HeroData>(e.1),
                     "QuestData" => rm.add_resource::<QuestData>(e.1),
-                    "FieldActionData" => rm.add_resource::<ActionData>(e.1),
+                    "ActionData" => rm.add_resource::<ActionData>(e.1),
                     other => Err(GameError::new(format!("Unknown type of resource in GameConfig.start_game: {}", other)))
                 }
             })?;
@@ -144,7 +144,7 @@ impl STWGame {
             GameMove::Build(position, id) => self.build(position, id),
             GameMove::Wait => self.wait(),
             GameMove::StartHistory(position, hero_index) => self.start_history(position, *hero_index),
-            GameMove::PlayMove(_, _) => todo!(),
+            GameMove::PlayMove(pos, action) => self.play_move(pos, action),
             GameMove::MakeDecision(_) => todo!(),
             GameMove::RenameHero(_, _) => todo!(),
         }
@@ -190,13 +190,18 @@ impl STWGame {
     }
 
     pub fn get_possible_hero_moves(&self) -> Vec<(TilePos, String)>{
-        match &self.history {
-            Some(history) => history.get_possible_next_move(&self),
-            None => vec![],
+        if self.is_waiting_for_decision().is_err() {
+            vec![]
+        }else{
+            match &self.history {
+                Some(history) => history.get_possible_next_move(&self),
+                None => vec![],
+            }
         }
     }
 
     pub fn can_start_history(&self, pos: &TilePos) -> Result<(), BadMove>{
+        self.is_playing_history()?;
         History::can_start_new(pos, 0, &self)
     }
 
@@ -276,7 +281,7 @@ impl STWGame {
         let mut res = self.play_instant_effects(&ftd);
 
         res.append(&mut self.get_changed_resource_callbacks(&before));
-        res.push(GameCallback::NewTileContent(*pos, id.to_string()));
+        res.push(GameCallback::NewTileContent{position: *pos, field_type_id: id.to_string()});
         self.builded.push(id.to_string());
         Ok(res)
     }
@@ -284,7 +289,7 @@ impl STWGame {
     fn get_changed_resource_callbacks(&self, before: &HashMap<GResource, u32>)-> Vec<GameCallback>{
         before.iter()
         .filter(|e|e.1 != self.game_resources.get(e.0).unwrap())
-        .map(|e|GameCallback::ChangedResource(*e.0, *self.game_resources.get(e.0).unwrap()))
+        .map(|e|GameCallback::ChangedResource{resource: *e.0, new_value: *self.game_resources.get(e.0).unwrap()})
         .collect()
     }
 
@@ -327,7 +332,7 @@ impl STWGame {
                 crate::resource::enums::FieldInstantEffect::IncreaseMaxHeroes { only_first_time } => {
                     if self.check_if_should_play_effect(ftd, *only_first_time) {
                         self.max_heroes += 1;
-                        vec![GameCallback::MaxHeroesIncreased(self.max_heroes)]
+                        vec![GameCallback::MaxHeroesIncreased{current_max_heroes: self.max_heroes}]
                     }else{
                         vec![]
                     }
@@ -351,19 +356,41 @@ impl STWGame {
     }
 
     fn start_history(&mut self, pos: &TilePos, hero_index: usize) -> Result<Vec<GameCallback>, BadMove>{
+        self.is_playing_history()?;
         self.history = Some(History::new(pos, hero_index, &self)?);
-        Ok(vec![GameCallback::StartedHistory(*pos, hero_index)])
+        Ok(vec![GameCallback::StartedHistory{quest_pos: *pos, choosen_hero: hero_index}])
     }
 
-    fn _is_waiting_for_decision(&self) ->Result<(), BadMove>{
-        Ok(())
-        //Err(BadMove::new(format!("Game is waitng for decision")))
+    fn is_waiting_for_decision(&self) ->Result<(), BadMove>{
+        match &self.history {
+            Some(history) => if history.path_left == 0 {
+                Err(BadMove::new(format!("Game is waiting for decision quest at pos {:?}", history.quest_pos)))
+            } else {
+                Ok(())
+            },
+            None => Ok(())
+        }
     }
 
     fn is_playing_history(&self) ->Result<(), BadMove>{
         match self.history {
             Some(_) => Err(BadMove::new(format!("Game is playing history"))),
             None => Ok(()),
+        }
+    }
+
+    fn play_move(&mut self, pos: &TilePos, action: &String) -> Result<Vec<GameCallback>, BadMove> {
+        self.is_waiting_for_decision()?;
+        match self.history {
+            Some(_) => {
+                if self.history.as_ref().unwrap().get_possible_next_move(&self)
+                    .contains(&(*pos, action.to_string())) {
+                        Ok(self.history.as_mut().unwrap().perform_move(*pos, action.to_string(), &self.resource_manager, &mut self.heroes))
+                } else {
+                    Err(BadMove::new(format!("Move hero to pos {:?} and do action {} is inpossible", &pos, action)))
+                }
+            },
+            None =>  Err(BadMove::new(format!("Game is not playing history and you try move hero"))),
         }
     }
     

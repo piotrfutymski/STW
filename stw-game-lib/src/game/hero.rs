@@ -51,4 +51,8 @@ impl Hero{
     pub fn get_skills(&self) -> &HashMap<HeroSkill, f32>{
         &self.skills
     }
+
+    pub fn get_skills_mut(&mut self) -> &mut HashMap<HeroSkill, f32>{
+        &mut (self.skills)
+    }
 }

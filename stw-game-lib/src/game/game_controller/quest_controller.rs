@@ -72,7 +72,7 @@ impl GameController for QuestController {
             
         game.quests.insert(choosen_pos, Box::new(Quest::new(&game.resource_manager, quest_id.as_str(), game.game_turn, &choosen_pos)?));
         Ok(vec![
-            GameCallback::NewQuest(choosen_pos, quest_id.to_string())
+            GameCallback::NewQuest{where_created: choosen_pos, quest_id: quest_id.to_string()}
         ])      
 
     }

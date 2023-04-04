@@ -15,7 +15,10 @@ fn game_test() {
         .set_resources(resources)
         .set_seed("test seed")
         .start_game();
-    
+    if new_game_result.is_err() {
+        println!("{:?}",new_game_result.err());
+        panic!();
+    }
     assert!(new_game_result.is_ok());
 
     let mut game = new_game_result.unwrap();
@@ -36,8 +39,8 @@ fn game_test() {
 
     assert!(build_res_good.is_ok());
     let res = build_res_good.unwrap();
-    assert!(res.contains(&GameCallback::ChangedResource(GResource::Gold, 3)));
-    assert!(res.contains(&GameCallback::NewTileContent(TilePos { q: 8, r: 18 }, "cottage".to_string())));
+    assert!(res.contains(&GameCallback::ChangedResource{ resource: GResource::Gold, new_value: 3}));
+    assert!(res.contains(&GameCallback::NewTileContent{position: TilePos { q: 8, r: 18 }, field_type_id: "cottage".to_string()}));
 
 
     let build_res_bad = game.perform_move(&GameMove::Build(TilePos { q: 9, r: 18 }, "village".to_string()));
@@ -74,6 +77,29 @@ fn game_test() {
     assert!(possible_moves.contains(&(TilePos{q:9, r:18}, "collect_info_village".to_string())));
     assert!(possible_moves.contains(&(TilePos{q:9, r:18}, "shopping_village".to_string())));
 
+    let move_play = game.perform_move(&GameMove::PlayMove(TilePos{q:9, r:18}, "shopping_village".to_string()));
 
-    
+    assert!(move_play.expect("Cant move in test").iter().find(|e|match e {
+        GameCallback::HeroMoved { .. } => true,
+        _ => false
+        }).is_some());
+
+    game.get_possible_hero_moves();
+
+    assert!(game.perform_move(&GameMove::PlayMove(TilePos{q:9, r:17}, "gathering_meadow".to_string())).is_ok());
+    game.get_possible_hero_moves();
+
+    assert!(game.perform_move(&GameMove::PlayMove(TilePos{q:8, r:17}, "gathering_meadow".to_string())).is_ok());
+
+    let possible_moves = game.get_possible_hero_moves();
+    assert!(possible_moves.len() == 0);
+
+    let move_play = game.perform_move(&GameMove::PlayMove(TilePos{q:8, r:17}, "gathering_meadow".to_string()));
+    assert!(move_play.is_err());
+
+    game.print();
+
+    // decision
+
+
 }

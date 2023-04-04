@@ -106,8 +106,8 @@ pub struct QuestData{
 
 #[derive(Serialize, Deserialize, Debug)]
 pub struct EternalModificator{
-    skills: HashMap<HeroSkill, f32>,
-    probability: f32
+    pub skills: HashMap<HeroSkill, f32>,
+    pub probability: f32
 }
 
 #[derive(Serialize, Deserialize, Debug)]

@@ -81,10 +81,7 @@ pub enum QuestPenalty {
 #[derive(Serialize, Deserialize, Debug)]
 pub enum ActionRequirment {
     IsBefore(String),
-    IsAfter(String,),
     IsBeforeFamily(String),
-    IsAfterFamily(String),
-    IsBeforePosition(String),
-    IsAfterPosition(String)
+    IsBeforePosition(usize),
 }
 

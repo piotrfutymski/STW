@@ -1,0 +1,258 @@
+[
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "collect_info_village",
+            "data":{
+                "action_family": "collect_info",
+                "modificators":  {"Intnteligence": 0.2, "Tracking": 0.2, "Charisma": 0.2},
+                "points": {"Intnteligence": [0.1,0.3], "Charisma": [0.2,0.5]},
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {"Charisma": 0.2},
+                    "probability": 0.2
+                },
+                "modificator_info": {"Intnteligence": 1, "Tracking": 1, "Charisma": 2}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "shopping_village",
+            "data":{
+                "action_family": "shopping",
+                "modificators":  {"Alechemy": 0.2, "Magic": 0.2, "MleeFight": 0.2, "DistanceFight":0.2},
+                "points": {"Alechemy": [0.1,0.3], "Magic": [0.1,0.3], "MleeFight":[0.1,0.3], "DistanceFight":[0.1,0.3]},
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {"MleeFight": 0.2, "DistanceFight": 0.2},
+                    "probability": 0.2
+                },
+                "modificator_info": {"Alechemy": 1, "Magic": 1, "MleeFight": 1, "DistanceFight": 1}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "collect_info_tavern",
+            "data":{
+                "action_family": "collect_info",
+                "modificators":  {"Intnteligence": 0.2, "Tracking": 0.5, "Charisma": 0.2},
+                "points": {"Intnteligence": [0.1,0.3], "Tracking":[0.3,0.5], "Charisma": [0.1,0.3]},
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {"Tracking": 0.2},
+                    "probability": 0.25
+                },
+                "modificator_info": {"Intnteligence": 1, "Tracking": 2, "Charisma": 1}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "do_some_quests_tavern_small",
+            "data":{
+                "action_family": "quests",
+                "modificators":{},
+                "points": {
+                    "Intnteligence": [0.1,0.3], 
+                    "Alechemy": [0.1,0.3], 
+                    "Magic":[0.1,0.3], 
+                    "Strength":[0.1,0.3],
+                    "MleeFight": [0.1,0.3], 
+                    "Charisma": [0.1,0.3], 
+                    "Dextrity":[0.1,0.3], 
+                    "Tracking":[0.1,0.3],
+                    "DistanceFight":[0.1,0.3]
+                },
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {
+                        "Intnteligence": 0.1, 
+                        "Alechemy": 0.1,
+                        "Magic": 0.1, 
+                        "Strength": 0.1,
+                        "MleeFight": 0.1, 
+                        "Charisma": 0.1,
+                        "Dextrity": 0.1, 
+                        "Tracking": 0.1,
+                        "DistanceFight": 0.1
+                    },
+                    "probability": 0.2
+                },
+                "modificator_info": {}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "do_some_quests_tavern",
+            "data":{
+                "action_family": "quests",
+                "modificators":{},
+                "points": {
+                    "Intnteligence": [0.3,0.6], 
+                    "Alechemy": [0.3,0.6], 
+                    "Magic":[0.3,0.6], 
+                    "Strength":[0.3,0.6],
+                    "MleeFight": [0.3,0.6], 
+                    "Charisma": [0.3,0.6], 
+                    "Dextrity":[0.3,0.6], 
+                    "Tracking":[0.3,0.6],
+                    "DistanceFight":[0.3,0.6]
+                },
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {
+                        "Intnteligence": 0.15, 
+                        "Alechemy": 0.15,
+                        "Magic": 0.15, 
+                        "Strength": 0.15,
+                        "MleeFight": 0.15, 
+                        "Charisma": 0.15,
+                        "Dextrity": 0.15, 
+                        "Tracking": 0.15,
+                        "DistanceFight": 0.15
+                    },
+                    "probability": 0.25
+                },
+                "modificator_info": {}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "exploration_forest",
+            "data":{
+                "action_family": "exploration",
+                "modificators":{},
+                "points": {"Alechemy": [0.3,0.5], "Tracking":[0.3,0.5]},
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {"Alechemy": 0.2, "Tracking": 0.2},
+                    "probability": 0.2
+                },
+                "modificator_info": {"Alechemy": 1, "Tracking": 1}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "exploration_meadow",
+            "data":{
+                "action_family": "exploration",
+                "modificators":{},
+                "points": {"Intnteligence": [0.3,0.5], "Tracking":[0.3,0.5]},
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {"Intnteligence": 0.2, "Tracking": 0.2},
+                    "probability": 0.2
+                },
+                "modificator_info": {"Intnteligence": 1, "Tracking": 1}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "exploration_mountains",
+            "data":{
+                "action_family": "exploration",
+                "modificators":{},
+                "points": {"Strength": [0.3,0.5], "Tracking":[0.3,0.5]},
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {"Strength": 0.2, "Tracking": 0.2},
+                    "probability": 0.2
+                },
+                "modificator_info": {"Strength": 1, "Tracking": 1}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "hunting_forest",
+            "data":{
+                "action_family": "hunting",
+                "modificators":{},
+                "points": {"DistanceFight": [0.2,0.5], "Tracking":[0.2,0.5], "Dextrity": [0.2,0.5]},
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {"DistanceFight": 0.2, "Tracking": 0.2, "Dextrity": 0.2},
+                    "probability": 0.2
+                },
+                "modificator_info": {"DistanceFight": 1, "Tracking": 1, "Dextrity": 1}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "gathering_meadow",
+            "data":{
+                "action_family": "gathering",
+                "modificators":{},
+                "points": {"Dextrity": [0.2,0.5], "Alechemy":[0.2,0.5], "Tracking": [0.2,0.5]},
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {"Dextrity": 0.2, "Alechemy": 0.2, "Tracking": 0.2},
+                    "probability": 0.2
+                },
+                "modificator_info": {"Dextrity": 1, "Alechemy": 1, "Tracking": 1}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "mining_hills",
+            "data":{
+                "action_family": "mining",
+                "modificators":{},
+                "points": {"Strength": [0.2,0.5], "Alechemy":[0.2,0.5], "Tracking": [0.2,0.5]},
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {"Strength": 0.2, "Alechemy": 0.2, "Tracking": 0.2},
+                    "probability": 0.2
+                },
+                "modificator_info": {"Strength": 1, "Alechemy": 1, "Tracking": 1}
+            }
+        }
+    },
+    {
+        "type":"ActionData",
+        "resource":{
+            "id": "mining_mountains",
+            "data":{
+                "action_family": "mining",
+                "modificators":{},
+                "points": {"Strength": [0.2,0.8], "Alechemy":[0.2,0.8], "Tracking": [0.2,0.8]},
+                "bonus_points": [],
+                "requirments": [],
+                "eternal_modificator": {
+                    "skills": {"Strength": 0.25, "Alechemy": 0.25, "Tracking": 0.25},
+                    "probability": 0.2
+                },
+                "modificator_info": {"Strength": 1, "Alechemy": 1, "Tracking": 1}
+            }
+        }
+    }
+]

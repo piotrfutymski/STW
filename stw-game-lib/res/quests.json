@@ -11,7 +11,7 @@
                         "id":"give_resources",
                         "required_skills": {"Charisma": 1.0, "Intnteligence": 1.0, "Tracking": 1.0},
                         "min_required_points": 0.0,
-                        "points_50p": 5.0,
+                        "points_50p": 3.0,
                         "additional_points": [{"DidActionFamily":"gathering"}, {"DidActionFamily":"hunting"}],
                         "required": [[{"DidActionFamily":"gathering"}], [{"DidActionFamily":"hunting"}]],
                         "treasure": {"Gold": [4.0,6.0]}
@@ -20,7 +20,7 @@
                         "id":"help_with_gathering",
                         "required_skills": {"Charisma": 1.0, "Intnteligence": 1.0, "Tracking": 1.0},
                         "min_required_points": 0.0,
-                        "points_50p": 5.0,
+                        "points_50p": 3.0,
                         "additional_points": [],
                         "required": [],
                         "treasure": {"Gold": [2.0,5.0]}

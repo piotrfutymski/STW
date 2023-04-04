@@ -31,7 +31,7 @@
                     "height": 0.8,
                     "vegetation": 1.0,
                     "color": [200,200,120],
-                    "possible_actions":["exploration_hills", "mining_hills"]
+                    "possible_actions":["exploration_mountains", "mining_hills"]
                 }
         }
     },

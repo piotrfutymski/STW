@@ -58,7 +58,7 @@ impl GameController for HeroController {
             
             game.heroes.push(Box::new(Hero::new(&game.resource_manager, hero_id.as_str())?));
             Ok(vec![
-                GameCallback::NewHero(choosen_pos, hero_id.to_string())
+                GameCallback::NewHero{where_born: choosen_pos, hero_id: hero_id.to_string()}
             ])
         }else{
             Ok(vec![])
