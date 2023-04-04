@@ -1,8 +1,8 @@
-use std::collections::HashMap;
+use std::{collections::HashMap, rc::Rc};
 
-use crate::resource::enums::{HeroSkill, FieldCharacteristic};
+use crate::resource::{enums::{HeroSkill, FieldCharacteristic}, resource_data::FieldTypeData, Resource};
 
-use super::{map::TilePos, STWGame, BadMove};
+use super::{map::TilePos, STWGame, BadMove, tile::GameTile};
 
 #[derive(Debug)]
 pub struct History{
@@ -10,7 +10,9 @@ pub struct History{
     pub quest_pos: TilePos,
     pub steps: Vec<(TilePos, String)>,
     pub points_got: Vec<HashMap<HeroSkill, f32>>,
-    pub current_modificators: HashMap<HeroSkill, f32>
+    pub current_modificators: HashMap<HeroSkill, f32>,
+    pub current_pos: Option<TilePos>,
+    pub path_left: u32
 }
 
 impl History{
@@ -23,7 +25,9 @@ impl History{
             quest_pos: *quest_pos,
             steps: Vec::new(),
             points_got: Vec::new(),
-            current_modificators: game.heroes[hero_index].get_skills().clone()
+            current_modificators: game.heroes[hero_index].get_skills().clone(),
+            current_pos: None,
+            path_left: game.max_path_length
         })
 
     }
@@ -46,6 +50,46 @@ impl History{
         }else{
             Err(BadMove::new(format!("No quest at position {:?}", quest_pos)))
         }
+    }
+
+    pub fn get_possible_next_move(&self, game: &STWGame) -> Vec<(TilePos, String)> {
+        match self.current_pos {
+            Some(current_pos) => {
+                current_pos.adjacent_positions()
+                    .iter()
+                    .filter(|e|e.distance(&self.quest_pos) <= self.path_left)
+                    .filter_map(|e|game.map.get(e))
+                    .flat_map(|e|self.get_possible_actions_for_field_content(e))
+                    .collect()
+            },
+            None => {
+                game.map.get_tiles_in_range_together(&self.quest_pos, self.path_left)
+                    .iter()
+                    .filter(|e|e.get_field_content().map_or(false, |b|b.data.characteristic == FieldCharacteristic::Habited))
+                    .flat_map(|e|self.get_possible_actions_for_field_content(e))
+                    .collect()
+            }
+        }
+    }
+
+    fn get_possible_actions_for_field_content(&self, game_tile: &GameTile) -> Vec<(TilePos, String)>{
+        let base_actions = &game_tile.get_base_field_type().data.possible_actions;
+        let mut res: Vec<(TilePos, String)> = match &game_tile.get_field_content() {
+            Some(field_content) => {
+                &field_content.data.possible_actions
+            }
+            None => {
+                base_actions
+            }
+        }
+        .iter()
+            .filter(|e|!self.steps.contains(&(game_tile.get_position(), e.to_string())))
+            .map(|e|(game_tile.get_position(), e.to_string()))
+            .collect();
+        if res.len() == 0 {
+            res.push((game_tile.get_position(), String::from("")))
+        }
+        res
     }
 
 }

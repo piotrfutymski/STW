@@ -189,6 +189,13 @@ impl STWGame {
             }
     }
 
+    pub fn get_possible_hero_moves(&self) -> Vec<(TilePos, String)>{
+        match &self.history {
+            Some(history) => history.get_possible_next_move(&self),
+            None => vec![],
+        }
+    }
+
     pub fn can_start_history(&self, pos: &TilePos) -> Result<(), BadMove>{
         History::can_start_new(pos, 0, &self)
     }

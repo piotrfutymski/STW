@@ -67,5 +67,13 @@ fn game_test() {
     assert!(wait_res.is_err());
     game.print();
 
+
+    let possible_moves = game.get_possible_hero_moves();
+    assert!(possible_moves.len() == 3);
+    assert!(possible_moves.contains(&(TilePos{q:8, r:18}, "collect_info_village".to_string())));
+    assert!(possible_moves.contains(&(TilePos{q:9, r:18}, "collect_info_village".to_string())));
+    assert!(possible_moves.contains(&(TilePos{q:9, r:18}, "shopping_village".to_string())));
+
+
     
 }
